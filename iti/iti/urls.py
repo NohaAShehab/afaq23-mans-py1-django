@@ -33,6 +33,7 @@ urlpatterns = [
     # path('courses/index', courses_index)
 
     # include urls in courses/urls.py --> any url in courses.urls --> called with prefix courses
-    path('courses/', include('courses.urls'))
+    path('courses/', include('courses.urls')),
+    path('students/', include('students.urls'))
 
 ]

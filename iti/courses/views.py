@@ -28,3 +28,14 @@ def get_course(request, course_id):
 
     return  HttpResponse("course not found ")
 
+
+
+## return with template
+
+
+def index(request):
+    # return with template page, you must render the template ?
+
+    # if you need to send data to the template ?
+    data_to_send = {"courses":courses}
+    return render(request,'courses/index.html', context=data_to_send)

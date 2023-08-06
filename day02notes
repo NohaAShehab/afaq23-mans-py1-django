@@ -1,0 +1,40 @@
+
+
+
+when create django project
+    this will be created with default installed apps
+    this list contains the applications that django can interact with ?
+
+    ---> when user request template from django
+    django scans the templates folders in the installed_apps
+
+    INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+
+### after you create new application in django project
+You must 00>> add this application to the installed apps
+
+how?
+
+got apps.py file in your application, copy classname
+and include the application as follows
+
+    'courses.apps.CoursesConfig'
+
+
+
+
+######### when you add the static folder for the first time
+in your application --> you must restart the server so the project can feel the static files
+
+
+
+############ create base template ?
+    --> basic architecture
