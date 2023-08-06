@@ -1,0 +1,13 @@
+{% extends 'courses/layouts/base.html' %}
+
+{%load static %}
+
+{% block 'content' %}
+    <div class="card" style="width: 18rem;">
+  <img src="{% static 'students/images/'|add:student.image %}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{student.name}}</h5>
+    <a href="{% url 'students.index' %}" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{% endblock %}

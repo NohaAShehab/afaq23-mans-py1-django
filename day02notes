@@ -38,3 +38,5 @@ in your application --> you must restart the server so the project can feel the 
 
 ############ create base template ?
     --> basic architecture
+
+        =>> inherits existing templates

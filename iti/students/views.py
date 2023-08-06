@@ -27,9 +27,7 @@ def sumnums(request, num1, num2):
     return HttpResponse(f"<h1> num1 + num2 = {num1 + num2} </h1>")
 
 
-
-def index(request):
-    students = [
+students = [
         {"id":1, "name":"Ahmed", 'image':'pic1.png'},
         {"id": 2, "name": "Ali", 'image': 'pic2.png'},
         {"id": 3, "name": "Mohamed", 'image': 'pic3.png'},
@@ -37,5 +35,17 @@ def index(request):
         {"id": 5, "name": "Omar", 'image': 'pic5.png'}
     ]
 
+def index(request):
+
     return render(request, 'students/index.html',context={"students":students})
+
+
+
+def show(request,id):
+    student = filter(lambda std:std["id"]==id, students)
+    student = list(student)
+    if student:
+        # return HttpResponse(student[0])
+        return  render(request, 'students/show.html', context={"student":student[0]})
+    return HttpResponse("Student not found ")
 
