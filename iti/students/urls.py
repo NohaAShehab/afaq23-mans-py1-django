@@ -7,8 +7,9 @@ from django.urls import include, path
 """
 from django.contrib import admin
 from django.urls import include, path
-from students.views import index, show
+from students.views import index, show, delete
 urlpatterns = [
     path('', index, name='students.index'),
-    path('<int:id>', show, name='students.show')
+    path('<int:id>', show, name='students.show'),
+    path('<int:id>/delete',delete , name='students.delete' )
 ]

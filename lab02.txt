@@ -1,0 +1,24 @@
+
+
+1- connect your project with postgres
+
+2- create model Product for products application
+    product (id , name , price , description , image , instock true/false , created_at , updated_at
+
+3- create page index.html
+    --> list all products in a table / card
+    --> in the list  --> id , name , image
+
+    each product has 2 buttons
+     --> for show --> redirect to new page list all information about the product
+
+     ---> delete
+        delete the product from the database
+
+notes:
+    use bootstrap or css styles to organize the website
+
+    -- use template inheritance to create one navbar for all the page
+
+    --> Don't forget to add your application in the installed apps
+    and don't forget to restart the server after add static folder to the application 

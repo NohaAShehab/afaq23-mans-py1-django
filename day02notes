@@ -40,3 +40,81 @@ in your application --> you must restart the server so the project can feel the 
     --> basic architecture
 
         =>> inherits existing templates
+
+
+#############################
+
+### connect postgres
+
+1- install postgres driver
+pip install psycopg2
+pip install psycopg2-binary
+
+
+then add connection credits to your settings.py
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "djangost23py1",
+        "USER": "stpy123",
+        "PASSWORD": "iti",
+        "HOST": "localhost",
+        "PORT": "5432",
+    }
+}
+https://docs.djangoproject.com/en/4.2/ref/databases/#postgresql-notes
+
+Now you are ready to perform operations on the database using django
+
+################# dealing with models
+
+Models intro
+https://docs.djangoproject.com/en/4.2/topics/db/models/
+
+
+fields datatypes
+https://docs.djangoproject.com/en/4.2/topics/db/models/#field-types
+
+
+to create migrationfiles that represent the changes in your models run the following
+python manage.py makemigrations
+    00> scan all models files in the installed apps (for changes )
+    if change detected? ---> generate migrations files represent this change
+
+
+to apply changes in the migration files to the database
+python manage.py migrate
+
+####################### use admin panel
+
+create superuser to use it
+
+python manage.py createsuperuser
+
+
+
+
+### you can use admin dashboard to control operations on your created models ?
+
+any model you want to be controlled by admin
+
+open in your app /// admin.py
+import desired model
+
+admin.site.register(Modelname )
+
+
+
+
+####################### to get data from database
+use django database access api:
+https://docs.djangoproject.com/en/4.2/topics/db/queries/
+
+
+---> select * from students_student;
+
+all_entries = Student.objects.all()
+
+select specific object from database
+std = Student.objects.get(id=id)
+

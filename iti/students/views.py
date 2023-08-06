@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from  django.http import  HttpResponse
 # Create your views here.
+from django.shortcuts import get_object_or_404, redirect
+from students.models import Student
 
 
 ## views functions
@@ -37,15 +39,29 @@ students = [
 
 def index(request):
 
-    return render(request, 'students/index.html',context={"students":students})
+
+    allstudents = Student.objects.all()
+    print(allstudents)
+    # <QuerySet
+    # consists of student objects
+    # [<Student: Test_updated>, <Student: ddded>, <Student: Ali_updated>, <Student: abccc>]>
+    return render(request, 'students/index.html',context={"students":allstudents})
 
 
 
 def show(request,id):
-    student = filter(lambda std:std["id"]==id, students)
-    student = list(student)
-    if student:
+    # student = filter(lambda std:std["id"]==id, students)
+    # student = list(student)
+    # student = Student.objects.get(id=id)
+    student = get_object_or_404(Student, id=id)
+    # if student:
         # return HttpResponse(student[0])
-        return  render(request, 'students/show.html', context={"student":student[0]})
-    return HttpResponse("Student not found ")
+    return  render(request, 'students/show.html', context={"student":student})
+
+
+def delete(request, id):
+    student = get_object_or_404(Student, id=id)  # object from student model
+    student.delete()  # delete object from the database
+    # return HttpResponse("deleted")
+    return redirect('students.index')
 
