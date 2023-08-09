@@ -22,6 +22,15 @@
     <input type="checkbox" name="absent" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Absent</label>
   </div>
+        <div class="mb-3">
+            <label  class="form-label">Track</label>
+        <select name='track' class="form-select" aria-label="Default select example">
+          <option selected disabled>Open this select menu</option>
+            {% for track in tracks %}
+          <option value="{{track.id}}">{{track.name}}</option>
+          {% endfor %}
+</select>  </div>
+
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

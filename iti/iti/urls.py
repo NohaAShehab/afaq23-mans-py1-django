@@ -21,6 +21,9 @@ from django.urls import include, path
     path(url, viewname(functionname))
     path('mywelcome', welcome)
 """
+from django.conf.urls.static import static
+from django.conf import settings
+
 from students.views import  helloworld, welcome,saywelcome, sumnums
 from courses.views import  courses_index
 urlpatterns = [
@@ -34,6 +37,7 @@ urlpatterns = [
 
     # include urls in courses/urls.py --> any url in courses.urls --> called with prefix courses
     path('courses/', include('courses.urls')),
-    path('students/', include('students.urls'))
+    path('students/', include('students.urls')),
+    path('tracks/', include('tracks.urls'))
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

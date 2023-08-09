@@ -10,3 +10,29 @@ any information related to the object --> should be associated to the model
 
 ---> urls --> edit  , delete , show
 
+
+create model --> tracks
+id , name, image, description
+image: image field --> You must install Pillow Python
+    python -m pip install Pillow
+
+when need to upload files to the application
+you should define url of media directory to upload the images
+in settings files add these ?
+MEDIA_URL='/media/'
+import  os
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media/')
+
+---> serving media files ?
+
+each student belongs to only one track, track has many students
+--one to many relation
+
+--> one to many relationship
+one track
+many student ? ---> fk_ --> many part
+
+
+
+
+

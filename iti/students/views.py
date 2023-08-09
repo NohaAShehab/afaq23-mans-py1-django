@@ -3,6 +3,7 @@ from  django.http import  HttpResponse
 # Create your views here.
 from django.shortcuts import get_object_or_404, redirect
 from students.models import Student
+from tracks.models import  Track
 
 
 ## views functions
@@ -68,11 +69,8 @@ def delete(request, id):
 
 
 def createStudent(request):
-    # return  HttpResponse("create page ")
-    ## when I recieve a get request to this page
+    tracks = Track.get_all_tracks()
 
-    # when I receive a post request to this page
-    # print(request.method)
     if request.method =="POST":
         print(request.POST)
         name = request.POST['name']
@@ -82,6 +80,9 @@ def createStudent(request):
         else:
             absent = False
         image =request.POST['image']
+        track = request.POST['track'] # this the track id and
+        # model needs track object
+        track = Track.get_specific_track(id=track)
         print(name, grade, absent, image)
 
         ### use this data to create new object from the Student model
@@ -91,12 +92,13 @@ def createStudent(request):
         student.image = image
         student.grade = grade
         student.absent = absent
+        student.track = track
         student.save()  # save new object in the database
         # return HttpResponse("POST request recieved ")
         return redirect('students.index')
 
     ## when I recieve a get request to this page
-    return render(request, 'students/create.html')
+    return render(request, 'students/create.html', context={"tracks":tracks})
 
 
 def editStudent(request, id):
