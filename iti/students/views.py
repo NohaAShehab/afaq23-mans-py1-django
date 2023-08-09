@@ -65,3 +65,57 @@ def delete(request, id):
     # return HttpResponse("deleted")
     return redirect('students.index')
 
+
+
+def createStudent(request):
+    # return  HttpResponse("create page ")
+    ## when I recieve a get request to this page
+
+    # when I receive a post request to this page
+    # print(request.method)
+    if request.method =="POST":
+        print(request.POST)
+        name = request.POST['name']
+        grade = request.POST['grade']
+        if 'absent' in  request.POST:
+            absent = True
+        else:
+            absent = False
+        image =request.POST['image']
+        print(name, grade, absent, image)
+
+        ### use this data to create new object from the Student model
+
+        student = Student()
+        student.name = name
+        student.image = image
+        student.grade = grade
+        student.absent = absent
+        student.save()  # save new object in the database
+        # return HttpResponse("POST request recieved ")
+        return redirect('students.index')
+
+    ## when I recieve a get request to this page
+    return render(request, 'students/create.html')
+
+
+def editStudent(request, id):
+    student = get_object_or_404(Student, id=id)
+    if request.method=='POST':
+        name = request.POST['name']
+        grade = request.POST['grade']
+        if 'absent' in request.POST:
+            absent = True
+        else:
+            absent = False
+        image = request.POST['image']
+        student.name = name
+        student.image = image
+        student.grade = grade
+        student.absent = absent
+        student.save()  # save new object in the database
+        # return HttpResponse("POST request recieved ")
+        return redirect('students.index')
+
+
+    return render(request, 'students/edit.html', context={'student':student})

@@ -1,0 +1,12 @@
+
+
+"1- use models to create /edit item "
+
+CSRF verification failed. Request aborted.
+
+any information related to the object --> should be associated to the model
+
+---> path of the image
+
+---> urls --> edit  , delete , show
+

@@ -1,0 +1,32 @@
+{% extends 'courses/layouts/base.html'%}
+{% load static %}
+{% block 'title' %}Create Student  {%endblock%}
+{% block 'content' %}
+
+    <h1 style="text-align: center"> Edit student: {{student.name}}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label  class="form-label">Name</label>
+    <input type="text" name="name"  value="{{student.name}}"  class="form-control" >
+  </div>
+<div class="mb-3">
+    <label  class="form-label">grade</label>
+    <input type="number" name='grade'  value="{{student.grade}}" class="form-control" >
+  </div>
+   <div class="mb-3">
+    <label  class="form-label">Image</label>
+    <input type="text"name="image" value="{{student.image}}" class="form-control" >
+  </div>
+        <div class="mb-3 form-check">
+            {% if student.absent %}
+            <input type="checkbox" name="absent"  checked class="form-check-input" id="exampleCheck1">
+            {% else %}
+            <input type="checkbox" name="absent"   class="form-check-input" id="exampleCheck1">
+            {% endif %}
+    <label class="form-check-label"  for="exampleCheck1">Absent</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

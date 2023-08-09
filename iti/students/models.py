@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 
@@ -17,5 +18,10 @@ class Student(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+    def get_edit_url(self):
+        ## return with edit url students.
+        return reverse('students.edit', args=[self.id])
+
 
 
