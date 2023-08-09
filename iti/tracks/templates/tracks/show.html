@@ -1,0 +1,19 @@
+{% extends 'courses/layouts/base.html' %}
+
+{%load static %}
+
+{% block 'content' %}
+<h1> Track {{track.name}} Info </h1>
+    <div class="card" style="width: 18rem;">
+  <img src="{{track.get_image_url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{track.name}}</h5>
+    <a href="{% url 'tracks.index' %}" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+  <h1> Students in This track are  </h1>
+<!--  {{track.students.all}}-->
+      {% for student in track.students.all %}
+        <li> <a href="{{student.get_show_url}}"> {{student.name}}</a></li>
+  {% endfor %}
+{% endblock %}

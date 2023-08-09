@@ -1,0 +1,17 @@
+
+1- create 2 pages/buttons for create ,edit product
+
+2- create new model for categories
+    category (id , name, info, image --> image field)
+
+3- implement fk relation (one to many products, categories )
+
+4- list all categories
+
+5- show specfic category and list all the products in this category
+    --> backword relation
+
+
+hints --> image/show/edit/delete urls and any operation to the object
+should be defined in the side the model.
+

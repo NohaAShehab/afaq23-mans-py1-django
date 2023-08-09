@@ -13,7 +13,9 @@
             <tr>
                 <td> {{track.id }} </td> <td> {{track.name}}</td>
                 <td><img  src="{{track.get_image_url}}" width="50" height="50"> </td>
-                <td></td> <td></td> <td></td></tr>
+                <td>
+                    <a href="{{track.get_show_url}}" class="btn btn-secondary"> Show</a>
+                </td> <td></td> <td></td></tr>
         {% endfor %}
     </table>
 

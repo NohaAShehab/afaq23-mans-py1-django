@@ -15,7 +15,7 @@ class Student(models.Model):
     image = models.CharField(max_length=200, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
-    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True)
+    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True, related_name='students')
     ## this track property --> represent track object
 
     def __str__(self):
@@ -24,6 +24,9 @@ class Student(models.Model):
     def get_edit_url(self):
         ## return with edit url students.
         return reverse('students.edit', args=[self.id])
+
+    def get_show_url(self):
+        return reverse('students.show', args=[self.id])
 
 
 

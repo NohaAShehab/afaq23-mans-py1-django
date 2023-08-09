@@ -32,6 +32,11 @@ each student belongs to only one track, track has many students
 one track
 many student ? ---> fk_ --> many part
 
+--------- show students in specific tracks
+
+---> backword relation ?
+    ---> define property in the fk field __> related name
+
 
 
 

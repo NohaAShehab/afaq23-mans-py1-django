@@ -7,8 +7,16 @@
   <img src="{% static 'students/images/'|add:student.image %}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{student.name}}</h5>
-    <h5 class="card-body"> Track:{{student.track.name}} </h5>
+    <h5 class="card-body"> Track:<a href="{{student.track.get_show_url}}"> {{student.track.name}}<a> </h5>
     <a href="{% url 'students.index' %}" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
+    <div class="bg-light">
+        <h2> Your colleagues in this track </h2>
+        {% for std in student.track.students.all %}
+          {% if std.id != student.id %}
+          <li >  <a href="{{std.get_show_url}}"> {{std}} </a></li>
+          {% endif %}
+      {% endfor %}
+    </div>
 {% endblock %}
