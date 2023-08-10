@@ -21,13 +21,11 @@ def create(request):
         title = request.POST["title"]
         body = request.POST["body"]
         # print(request.FILES)
-        image = request.FILES["image"]
+        image = None
+        if request.FILES:
+            image = request.FILES["image"]
 
-        post = Post()
-        post.title = title
-        post.body = body
-        post.image =image
-        post.save()
+        post = Post.objects.create(title=title, body=body, image=image)
         # return HttpResponse("New object")
         return redirect('posts.index')
 

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'students.apps.StudentsConfig',
     'courses.apps.CoursesConfig',
     'tracks.apps.TracksConfig',
-    'posts.apps.PostsConfig'
+    'posts.apps.PostsConfig',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
