@@ -24,20 +24,21 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
 
-from students.views import  helloworld, welcome,saywelcome, sumnums
-from courses.views import  courses_index
+from students.views import helloworld, welcome, saywelcome, sumnums
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('hello', helloworld),
-    path('mywelcome', welcome),
-    path("welcome/<name>", saywelcome),
-    ## restrict url parameters to be int
-    path('sum/<int:num1>/<int:num2>', sumnums),
-    # path('courses/index', courses_index)
+                  path('admin/', admin.site.urls),
+                  path('hello', helloworld),
+                  path('mywelcome', welcome),
+                  path("welcome/<name>", saywelcome),
+                  ## restrict url parameters to be int
+                  path('sum/<int:num1>/<int:num2>', sumnums),
+                  # path('courses/index', courses_index)
 
-    # include urls in courses/urls.py --> any url in courses.urls --> called with prefix courses
-    path('courses/', include('courses.urls')),
-    path('students/', include('students.urls')),
-    path('tracks/', include('tracks.urls'))
+                  # include urls in courses/urls.py --> any url in courses.urls --> called with prefix courses
+                  path('courses/', include('courses.urls')),
+                  path('students/', include('students.urls')),
+                  path('tracks/', include('tracks.urls')),
+                  path('posts/', include('posts.urls'))
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

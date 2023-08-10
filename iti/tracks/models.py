@@ -1,12 +1,14 @@
 from django.db import models
 from django.shortcuts import reverse
+
+
 # Create your models here.
 
 
 class Track(models.Model):
-    name= models.CharField(max_length=100)
-    image= models.ImageField(upload_to='tracks/images',  null=True, blank=True )
-    description  = models.TextField(null=True, blank=True)
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='tracks/images', null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -18,7 +20,7 @@ class Track(models.Model):
         return cls.objects.all()
 
     def get_image_url(self):
-        return  f"/media/{self.image}"
+        return f"/media/{self.image}"
 
     @classmethod
     def get_specific_track(cls, id):

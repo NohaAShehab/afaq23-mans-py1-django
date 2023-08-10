@@ -1,0 +1,22 @@
+{% extends 'courses/layouts/base.html' %}
+
+{% load static %}
+
+{% block 'content' %}
+<h1> All posts </h1>
+<a href="{% url 'posts.new'%}" class="btn btn-success"> Create New Post </a>
+<div style="display: flex ; flex-wrap: wrap ">
+    {% for post in posts %}
+        <div class="card" style="width: 18rem;">
+  <img src="{{post.get_image_url}}"  width="150" height="150" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <a href="#" class="btn btn-primary">Details</a>
+      <a href="{{post.get_edit_url}}" class="btn btn-warning">Edit</a>
+      <a href="{{post.get_delete_url}}" class="btn btn-danger">Delete</a>
+  </div>
+</div>
+    {% endfor %}
+</div>
+
+{% endblock %}

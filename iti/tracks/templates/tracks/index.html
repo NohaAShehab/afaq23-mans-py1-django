@@ -4,20 +4,29 @@
 {% block 'content' %}
 <h1 style="text-align: center"> All Tracks </h1>
 <a style="text-align: center" class="btn btn-primary" href=''> Add new Track</a>
-    <table class="table">
-        <tr> <th>ID</th> <th>Name</th> <th>Image</th> <th> Show</th>  <th> Edit</th>
-        <th>Delete </th>
-        </tr>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th> Show</th>
+        <th> Edit</th>
+        <th>Delete</th>
+    </tr>
 
-        {% for track in tracks %}
-            <tr>
-                <td> {{track.id }} </td> <td> {{track.name}}</td>
-                <td><img  src="{{track.get_image_url}}" width="50" height="50"> </td>
-                <td>
-                    <a href="{{track.get_show_url}}" class="btn btn-secondary"> Show</a>
-                </td> <td></td> <td></td></tr>
-        {% endfor %}
-    </table>
+    {% for track in tracks %}
+    <tr>
+        <td> {{track.id }}</td>
+        <td> {{track.name}}</td>
+        <td><img src="{{track.get_image_url}}" width="50" height="50"></td>
+        <td>
+            <a href="{{track.get_show_url}}" class="btn btn-secondary"> Show</a>
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% endfor %}
+</table>
 
 
 {% endblock %}

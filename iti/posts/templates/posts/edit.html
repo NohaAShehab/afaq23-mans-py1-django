@@ -1,0 +1,27 @@
+{% extends 'courses/layouts/base.html' %}
+
+{% load static %}
+
+{% block 'content' %}
+<h1> Edit Post </h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" value="{{post.title}}" name="title" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Body</label>
+        <input type="text"  value="{{post.body}}" name='body' class="form-control">
+    </div>
+     <div class="mb-3">
+        <img src="{{post.get_image_url}}" width="200" height="200">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Image</label>
+        <input type="file" name="image" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" >Update</button>
+</form>
+
+{% endblock %}
