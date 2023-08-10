@@ -1,0 +1,14 @@
+{% extends 'courses/layouts/base.html' %}
+
+{% load static %}
+
+{% block 'content' %}
+<h1> Create New Topic </h1>
+<form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+    {{form}}
+        <input type="submit" class="btn btn-success">
+    </form>
+
+<script src="{% static 'topics/js/script.js' %}"></script>
+{% endblock %}

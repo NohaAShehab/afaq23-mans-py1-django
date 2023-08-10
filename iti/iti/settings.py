@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'tracks.apps.TracksConfig',
     'posts.apps.PostsConfig',
     'django_cleanup.apps.CleanupConfig',
+    'topics.apps.TopicsConfig',
 ]
 
 MIDDLEWARE = [
