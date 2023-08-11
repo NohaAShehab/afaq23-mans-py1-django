@@ -1,0 +1,22 @@
+{% extends 'courses/layouts/base.html' %}
+
+{% load static %}
+
+{% block 'content' %}
+<h1> All topics </h1>
+<a href="" class="btn btn-success"> Create New movie </a>
+<div style="display: flex ; flex-wrap: wrap ">
+    {% for movie in movies %}
+        <div class="card" style="width: 18rem;">
+  <img src="{{movie.get_image_url}}"  width="150" height="150" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{movie.name}}</h5>
+    <a href="{{movie.get_show_url}}" class="btn btn-primary">Details</a>
+      <a href="{{movie.get_edit_url}}" class="btn btn-warning">Edit</a>
+      <a href="{{movie.get_delete_url}}" class="btn btn-danger">Delete</a>
+  </div>
+</div>
+    {% endfor %}
+</div>
+
+{% endblock %}

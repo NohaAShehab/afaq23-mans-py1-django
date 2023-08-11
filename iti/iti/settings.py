@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'django_cleanup.apps.CleanupConfig',
     'topics.apps.TopicsConfig',
+    'movies.apps.MoviesConfig'
 ]
 
 MIDDLEWARE = [

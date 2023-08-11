@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
 from topics.models import Topic
-
-
 ## import newly created form ?
 from topics.forms import TopicForm, TopicModelForm
 

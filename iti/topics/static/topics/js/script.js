@@ -27,3 +27,8 @@ checkboxex=document.querySelectorAll('input[type="checkbox"]')
 for (var d =0; d < checkboxex.length; d++){
     checkboxex[d].classList.remove('form-control')
 }
+
+errors = document.querySelectorAll('li')
+for (var m=0 ; m < errors.length; m ++){
+    divs[m].style = 'color:red; font-weight: bold';
+}

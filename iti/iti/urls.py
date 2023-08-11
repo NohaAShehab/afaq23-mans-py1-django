@@ -40,6 +40,7 @@ urlpatterns = [
                   path('students/', include('students.urls')),
                   path('tracks/', include('tracks.urls')),
                   path('posts/', include('posts.urls')),
-                  path('topics/', include('topics.urls'))
+                  path('topics/', include('topics.urls')),
+                  path('movies/', include('movies.urls'))
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

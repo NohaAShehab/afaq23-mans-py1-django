@@ -1,0 +1,14 @@
+{% extends 'courses/layouts/base.html' %}
+
+{% load static %}
+
+{% block 'content' %}
+<h1> Delete Movie </h1>
+<form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+    <p> Are you want to delete this movie: {{movie.name}}</p>
+        <input type="submit" class="btn btn-danger">
+    </form>
+    <a class="btn btn-dark" href="{% url 'movies.index'%}"> Cancel </a>
+<script src="{% static 'topics/js/script.js' %}"></script>
+{% endblock %}

@@ -5,7 +5,7 @@ from django.shortcuts import reverse, get_object_or_404
 
 class Topic (models.Model):
     name = models.CharField(max_length=100)
-    logo = models.ImageField(null=True, blank=True)
+    logo = models.ImageField(upload_to='topics/images',null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 

@@ -1,0 +1,18 @@
+{% extends 'courses/layouts/base.html' %}
+
+{%load static %}
+
+{% block 'content' %}
+    <div class="card" style="width: 18rem;">
+  <img src="{{movie.get_image_url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{movie.name}}</h5>
+      <h5 class="card-title">{{movie.description}}</h5>
+      <h5 class="card-title">{{movie.no_of_views}}</h5>
+      <h5 class="card-title">{{movie.created_at}}</h5>
+     <h5 class="card-title">{{movie.updated_at}}</h5>
+    <a href="{% url 'movies.index' %}" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+{% endblock %}
