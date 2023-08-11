@@ -1,0 +1,9 @@
+
+
+create new application for clients
+    --> login
+    --> registration  (create)
+
+   --> implement edit , delete for categories using class based views
+   --> make sure that only authenticated user can edit/ delete categories and the products
+   

@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'django_cleanup.apps.CleanupConfig',
     'topics.apps.TopicsConfig',
-    'movies.apps.MoviesConfig'
+    'movies.apps.MoviesConfig',
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'iti.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

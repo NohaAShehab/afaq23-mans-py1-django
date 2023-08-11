@@ -1,0 +1,5 @@
+
+
+authenticate views ?
+
+    --> create ,edit , delete --> only authenticated users --> login and register

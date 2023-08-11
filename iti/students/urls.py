@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.auth.decorators import  login_required
 
 """
     path(url, viewname(functionname))
@@ -13,5 +14,5 @@ urlpatterns = [
     path('<int:id>', show, name='students.show'),
     path('<int:id>/delete',delete , name='students.delete' ),
     path('create',createStudent, name='students.create' ),
-    path('<int:id>/edit',editStudent, name='students.edit' )
+    path('<int:id>/edit',login_required(editStudent), name='students.edit' )
 ]

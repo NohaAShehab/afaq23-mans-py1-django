@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from  django.http import  HttpResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 from django.shortcuts import get_object_or_404, redirect
 from students.models import Student
@@ -67,7 +68,7 @@ def delete(request, id):
     return redirect('students.index')
 
 
-
+@login_required()
 def createStudent(request):
     tracks = Track.get_all_tracks()
 
